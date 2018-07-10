@@ -1,0 +1,22 @@
+
+page-dashboard {
+
+    #map_canvas {
+        height: 100%;
+      }
+    .menu_div{
+    position: relative!important;
+    background: transparent!important;
+    border-radius: 0px!important;
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0), 0 0px 0px 0px rgba(0, 0, 0, 0), 0 0px 0px 0 rgba(0, 0, 0, 0) !important;
+    color: #fff!important;
+    font-size: 5vw!important;
+    }
+    .choose_destination{
+    text-transform: capitalize;
+    text-align: center !important;
+    margin-left: 16vw !important;
+    font-size: 4vw !important;
+    }
+    
+}

@@ -1,0 +1,42 @@
+
+<ion-content >
+
+  <div padding style="margin-top: -1vh">
+      <div class="center home_logo_div">
+          <img class="logo_home" src="assets/imgs/icon.png"/>
+        </div>
+        <div class="staff_div">
+          WELCOME
+        </div>
+      
+        <ion-list style="margin-top:4vh"> 
+          <p>
+            
+          </p>
+            <ion-item>
+              <ion-label floating>Official Email</ion-label>
+              <ion-input type="text" [(ngModel)]="loginData.email"></ion-input>
+            </ion-item>
+          
+            <ion-item>
+              <ion-label floating>Password</ion-label>
+              <ion-input type="password" [(ngModel)]="loginData.password"></ion-input>
+            </ion-item>
+          <p>
+      
+          </p>
+          </ion-list>
+          <div class="submit_div" (click)="gotoSetup()">
+              <button ion-button round full class="submit_button">Submit</button>
+          </div>
+          
+  </div>
+  
+  
+</ion-content>
+<ion-footer style=" text-align: center;">
+    <ion-toolbar style="font-size: 14px!important;color: #fece0c!important;">
+      <ion-title><img class="horse_home" src="assets/imgs/horse.png"/> <p class="horse_text">&#174;ContiCab</p> </ion-title>
+      
+    </ion-toolbar>
+  </ion-footer>

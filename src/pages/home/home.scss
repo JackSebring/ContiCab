@@ -1,0 +1,47 @@
+page-home {
+ .logo_home{
+    width: 35%;
+    border-radius: 5vw;
+ }
+ .home_logo_div{
+     margin-top: 10vh;
+ }
+ .staff_div{
+    text-align: center;
+    margin-top: 4vh;
+    font-size: 26px;
+    // font-weight: bold;
+ }
+ .submit_div{
+    margin-top: 10vh;
+ }
+ .submit_button{
+    background-color: #f90;
+    color: #000;
+ }
+ .toolbar-background-md {
+    background: #fff !important;
+}
+
+.toolbar-title-md {
+    padding: 0 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #424242;
+}
+.toolbar-title-ios {
+    padding: 0 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #424242;
+}
+
+.horse_home{
+    width: 8vw;
+    margin-left: -23vw;
+}
+.horse_text{
+    margin-top: -27px;
+    color: #906228;
+}
+}
