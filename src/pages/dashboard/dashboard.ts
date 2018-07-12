@@ -357,7 +357,7 @@ export class DashboardPage {
         {
           text: 'Yeah',
           handler: () => {
-            alert("Your request will be send to "+name)
+            alert("Your request has been sent to "+name)
           }
         }
       ]
