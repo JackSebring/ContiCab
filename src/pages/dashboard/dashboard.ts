@@ -115,7 +115,7 @@ export class DashboardPage {
     }).then((marker: Marker) => {
       marker.showInfoWindow();
     });
-    this.map = GoogleMaps.create('map_canvas', mapOptions);
+    
     
     this.map.addMarker({
       title: 'AH-South',

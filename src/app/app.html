@@ -10,9 +10,12 @@
             <button menuClose ion-item>
               Home
             </button>
-            <button menuClose ion-item>
+            <button menuClose ion-item (click)="newPage('RidePeerPage')">
                 Ride Peers
             </button>
+            <button menuClose ion-item (click)="newPage('PaymentPage')">
+              Payment
+          </button>
             <button menuClose ion-item (click)="newPage('ChatRoomPage')">
               Chat Room
           </button>
