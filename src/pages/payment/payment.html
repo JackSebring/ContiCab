@@ -1,0 +1,42 @@
+<!--
+  Generated template for the PaymentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Payment</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="center payment_logo_div">
+    <img class="logo_payment" src="assets/imgs/icon.png"/>
+  </div>
+  <ion-card>
+      <ion-item>
+        <span ion-text item-start color="subtle">Net Route Distance:</span>
+        <span ion-text item-end color="subtle">42.0 miles</span>
+      </ion-item>
+      <ion-item>
+          <span ion-text item-start color="subtle">Additional Distance:</span>
+          <span ion-text item-end color="subtle">4.2 miles</span>
+      </ion-item>
+      <ion-item>
+          <span ion-text item-start color="subtle">Number of Passengers:</span>
+          <span ion-text item-end color="subtle">2</span>
+      </ion-item>
+      <ion-item>
+          <span ion-text item-start color="primary">Suggested Fuel Payment:</span>
+          <span ion-text item-end color="secondary">$2.91</span>
+      </ion-item>
+  </ion-card>
+  <div class="finish_div" (click)="gotoDashboard()">
+      <button ion-button full class="finish_button">Back to Dashboard</button>
+  </div>
+
+</ion-content>  
