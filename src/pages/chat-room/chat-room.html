@@ -25,13 +25,14 @@
 
 <div [ngSwitch]="tabs">
   <ion-list *ngSwitchCase="'chats'">
-    <ion-item>
+    <ion-item (click)="gotoChatLog()">
       <ion-thumbnail item-start>
         <img src="./assets/imgs/Joe.png">
       </ion-thumbnail>
       <h2>Joe</h2>
     </ion-item>
-    <ion-item>
+
+    <ion-item (click)="gotoChatLogAyo()">
       <ion-thumbnail item-start>
         <img src="./assets/imgs/Ayo.png">
       </ion-thumbnail>
@@ -91,9 +92,3 @@
 
 
 
-
-<ion-footer>
-  <ion-item>
-    <ion-input type="text" placeholder="What do you have to say?"></ion-input>
-  </ion-item>
-</ion-footer>
