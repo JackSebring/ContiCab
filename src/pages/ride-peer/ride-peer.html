@@ -7,12 +7,68 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>RidePeerPage</ion-title>
+    <ion-title>Ride Status</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-list no-border>
+    <ion-list-header>Driver</ion-list-header>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="./assets/imgs/Jack.png"/> 
+      </ion-avatar>
+      <h2>Jack</h2>
+      <h3>Lambroghini Aventador</h3>
+      <p> Color: Red</p>
+    </ion-item>
+
+  </ion-list>
+
+
+  <ion-list>
+    <ion-list-header>Passengers</ion-list-header>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="./assets/imgs/Ayo.png"/>
+      </ion-avatar>
+      <h2>Ayo</h2>
+      <h3>Pickup Time: 7:25 a.m. - 7:30 a.m.</h3>
+      <p>at 123 ADAS Ave., Royal Oak</p>
+    </ion-item>
+    
+    <ion-item>
+        <ion-avatar item-start>
+          <img src="./assets/imgs/Joe.png"/>
+        </ion-avatar>
+        <h2>Joe</h2>
+        <h3>Pickup Time: 7:50 a.m. - 7:55 a.m.</h3>
+        <p>at 456 Backend Blvd., Rochester</p>
+      </ion-item>
+      
+    <ion-item>
+        <ion-avatar item-start>
+          <img src="./assets/imgs/Sreeram.png"/>
+        </ion-avatar>
+        <h2>Sreeram</h2>
+        <h3>Pickup Time: 8:00 a.m. - 8:05 a.m.</h3>
+        <p>at 789 Contibro Ct., Rochester</p>
+      </ion-item>
+
+  </ion-list>
+
+
+  <ion-card>
+    <ion-item>
+        <span ion-text item-start color="primary">Arrival at Destination: </span>
+        <span ion-text item-end color="secondary">8:30 a.m. - 8:40 a.m.</span>
+    </ion-item>
+  </ion-card>
+
 
 </ion-content>
