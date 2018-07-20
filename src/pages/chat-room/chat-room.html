@@ -10,12 +10,88 @@
     <ion-title>ChatRoom</ion-title>
   </ion-navbar>
 
+
+
+<div padding>
+  <ion-segment [(ngModel)]="tabs">
+    <ion-segment-button value="chats">
+      Chats
+    </ion-segment-button>
+    <ion-segment-button value="contacts">
+      Contacts
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+<div [ngSwitch]="tabs">
+  <ion-list *ngSwitchCase="'chats'">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="./assets/imgs/Joe.png">
+      </ion-thumbnail>
+      <h2>Joe</h2>
+    </ion-item>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="./assets/imgs/Ayo.png">
+      </ion-thumbnail>
+      <h2>Ayo</h2>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'contacts'">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="./assets/imgs/Ayo.png">
+      </ion-thumbnail>
+      <h2>Ayo</h2>
+      <h6>(586)750-6542</h6>
+      <h6>Ayomide.Yusuf@continental-corporation.com</h6>
+      
+    </ion-item>
+
+    <ion-item>
+        //<ion-thumbnail item-start>
+          <img src="./assets/imgs/Default.png">
+        </ion-thumbnail>//
+        <h2>Erik</h2>
+        <h6>(248)675-6431</h6>
+        <h6>Erik.2.Boyle@continental-corporation.com
+            </h6>
+      </ion-item>
+
+    <ion-item>
+        <ion-thumbnail item-start>
+          <img src="./assets/imgs/Default.png">
+        </ion-thumbnail>
+        <h2>Harleen</h2>
+        <h6>(248)365-8551</h6>
+        <h6>Harleen.Kaur@continental-corporation.com
+            </h6>
+      </ion-item>
+
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="./assets/imgs/Sreeram.png">
+      </ion-thumbnail>
+      <h2>Sreeram</h2>
+      <h6>(586)521-6541</h6>
+      <h6>Sreeram.Thirupathi@continental-corporation.com
+          </h6>
+    </ion-item>
+    </ion-list>
+</div>
+
 </ion-header>
 
 
 <ion-content padding>
 
 </ion-content>
+
+
+
+
 <ion-footer>
   <ion-item>
     <ion-input type="text" placeholder="What do you have to say?"></ion-input>
