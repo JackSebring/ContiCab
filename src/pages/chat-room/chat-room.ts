@@ -14,6 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'chat-room.html',
 })
 export class ChatRoomPage {
+  tabs = 'chats'
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
