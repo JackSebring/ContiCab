@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController,Platform  } from 'ionic-angular';
 import {
   GoogleMaps,
   GoogleMap,
@@ -11,6 +11,7 @@ import {
   ILatLng,
   HtmlInfoWindow
 } from '@ionic-native/google-maps';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 
 
@@ -30,7 +31,14 @@ export class DashboardPage {
   map: GoogleMap;
   htmInfoWindow: HtmlInfoWindow;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
+    private localNotifications: LocalNotifications,private plt: Platform) {
+      this.plt.ready().then((readySource) => {
+        this.localNotifications.on('click').subscribe(notification => {
+          
+          this.navCtrl.push("ChatRoomPage")
+        })
+      });
   }
 
   ionViewDidLoad() {
@@ -153,6 +161,41 @@ export class DashboardPage {
       marker.showInfoWindow();
     });
 
+    this.map.addMarker({
+      title: 'Harmond',
+      icon: {
+        url: "./assets/imgs/horse.png",
+        size: {
+          width: 30,
+          height: 30
+        }
+      },
+      animation: 'DROP',
+      position: { 
+        lat: 42.700109, 
+        lng:  -83.260967 
+      }
+    }).then((marker: Marker) => {
+      marker.showInfoWindow();
+    });
+    this.map.addMarker({
+      title: 'Farmington Hills',
+      icon: {
+        url: "./assets/imgs/horse.png",
+        size: {
+          width: 30,
+          height: 30
+        }
+      },
+      animation: 'DROP',
+      position: { 
+        lat: 42.491312, 
+        lng:  -83.425443
+      }
+    }).then((marker: Marker) => {
+      marker.showInfoWindow();
+    });
+
     //User Locations
     this.map.addMarker({
       title: 'Jack  2/4',
@@ -238,6 +281,69 @@ export class DashboardPage {
       });
     });
 
+    this.map.addMarker({
+      title: 'Girl1  1/4',
+      icon: {
+        url: "./assets/imgs/female1.jpg",
+        size: {
+          width: 30,
+          height: 30
+        }
+      },
+      animation: 'DROP',
+      position: { 
+        lat:42.779072,
+         lng:-83.189462
+      }
+    }).then((marker: Marker) => {
+      marker.showInfoWindow();
+      marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe((parmas: any[]) => {
+       this.showConfirm("Girl1")
+      });
+    });
+
+    this.map.addMarker({
+      title: 'Girl2  4/4',
+      icon: {
+        url: "./assets/imgs/female2.jpg",
+        size: {
+          width: 30,
+          height: 30
+        }
+      },
+      animation: 'DROP',
+      position: { 
+        lat:42.772438,
+        lng:-83.353942
+      }
+    }).then((marker: Marker) => {
+      marker.showInfoWindow();
+      marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe((parmas: any[]) => {
+       this.showConfirm("Girl2")
+      });
+    });
+
+    this.map.addMarker({
+      title: 'Girl2  3/4',
+      icon: {
+        url: "./assets/imgs/female3.jpg",
+        size: {
+          width: 30,
+          height: 30
+        }
+      },
+      animation: 'DROP',
+      position: { 
+        lat:42.635628,
+        lng:-83.366595
+      }
+    }).then((marker: Marker) => {
+      marker.showInfoWindow();
+      marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe((parmas: any[]) => {
+       this.showConfirm("Girl3")
+      });
+    });
+
     
     // yourLocation.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
     //   alert('clicked');
@@ -246,10 +352,16 @@ export class DashboardPage {
     let Ayo_loc: ILatLng = {lat:42.726144, lng:-83.366253}
     let Joe_loc: ILatLng = {lat:42.753780, lng:-83.143664} 
     let Sreeram_loc: ILatLng = {lat:42.673437, lng:-83.364038}
+    let girl1_loc: ILatLng = {lat:42.779072, lng:-83.189462}
+    let girl2_loc: ILatLng = {lat:42.772438, lng:-83.353942}
+    let girl3_loc: ILatLng = {lat:42.635628, lng:-83.366595}
 
     let AB_North: ILatLng = {lat: 42.702459, lng: -83.280267};
     let AB_South: ILatLng = {lat: 42.644375, lng: -83.241970};
     let Troy: ILatLng = {lat: 42.587763, lng: -83.172670};
+    let Harmond: ILatLng = {lat: 42.700109, lng: -83.260967}
+    let Farmington: ILatLng = {lat: 42.491312, lng: -83.425443}
+
 
     let Jack_Path: ILatLng[] = [
       Jack_loc,
@@ -258,6 +370,22 @@ export class DashboardPage {
     let Ayo_Path: ILatLng[] = [
       Ayo_loc,
       AB_South
+    ];
+    let Girl1_Path: ILatLng[] = [
+      girl1_loc,
+      AB_South
+    ];
+    let Girl2_Path: ILatLng[] = [
+      girl2_loc,
+      Harmond
+    ];
+    let Girl3_Path: ILatLng[] = [
+      girl3_loc,
+      Farmington
+    ];
+    let Girl4_Path: ILatLng[] = [
+      girl3_loc,
+      Troy
     ];
     let Joe_Path: ILatLng[] = [
       Joe_loc,
@@ -271,7 +399,7 @@ export class DashboardPage {
     this.map.addPolyline({
       points: Jack_Path,
       color: '#000000',
-      width: 2,
+      width: 1,
       geodesic: true,
       clickable: true  // clickable = false in default
     }).then((polyline: Polyline) => {
@@ -290,7 +418,83 @@ export class DashboardPage {
     this.map.addPolyline({
       points: Ayo_Path,
       color: '#000000',
-      width: 2,
+      width: 1,
+      geodesic: true,
+      clickable: true  // clickable = false in default
+    }).then((polyline: Polyline) => {
+      polyline.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
+        let position: LatLng = <LatLng>params[0];
+        this.map.addMarker({
+          position: position,
+          title: position.toUrlValue(),
+          disableAutoPan: true
+        }).then((marker: Marker) => {
+          marker.showInfoWindow();
+        });
+      });
+    });
+
+    this.map.addPolyline({
+      points: Girl1_Path,
+      color: '#000000',
+      width: 1,
+      geodesic: true,
+      clickable: true  // clickable = false in default
+    }).then((polyline: Polyline) => {
+      polyline.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
+        let position: LatLng = <LatLng>params[0];
+        this.map.addMarker({
+          position: position,
+          title: position.toUrlValue(),
+          disableAutoPan: true
+        }).then((marker: Marker) => {
+          marker.showInfoWindow();
+        });
+      });
+    });
+
+    this.map.addPolyline({
+      points: Girl2_Path,
+      color: '#000000',
+      width: 1,
+      geodesic: true,
+      clickable: true  // clickable = false in default
+    }).then((polyline: Polyline) => {
+      polyline.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
+        let position: LatLng = <LatLng>params[0];
+        this.map.addMarker({
+          position: position,
+          title: position.toUrlValue(),
+          disableAutoPan: true
+        }).then((marker: Marker) => {
+          marker.showInfoWindow();
+        });
+      });
+    });
+
+    this.map.addPolyline({
+      points: Girl3_Path,
+      color: '#000000',
+      width: 1,
+      geodesic: true,
+      clickable: true  // clickable = false in default
+    }).then((polyline: Polyline) => {
+      polyline.on(GoogleMapsEvent.POLYLINE_CLICK).subscribe((params: any) => {
+        let position: LatLng = <LatLng>params[0];
+        this.map.addMarker({
+          position: position,
+          title: position.toUrlValue(),
+          disableAutoPan: true
+        }).then((marker: Marker) => {
+          marker.showInfoWindow();
+        });
+      });
+    });
+
+    this.map.addPolyline({
+      points: Girl4_Path,
+      color: '#000000',
+      width: 1,
       geodesic: true,
       clickable: true  // clickable = false in default
     }).then((polyline: Polyline) => {
@@ -309,7 +513,7 @@ export class DashboardPage {
     this.map.addPolyline({
       points: Joe_Path,
       color: '#000000',
-      width: 2,
+      width: 1,
       geodesic: true,
       clickable: true  // clickable = false in default
     }).then((polyline: Polyline) => {
@@ -328,7 +532,7 @@ export class DashboardPage {
     this.map.addPolyline({
       points: Sreeram_path,
       color: '#000000',
-      width: 2,
+      width: 1,
       geodesic: true,
       clickable: true  // clickable = false in default
     }).then((polyline: Polyline) => {
@@ -348,7 +552,7 @@ export class DashboardPage {
   showConfirm(name) {
     const confirm = this.alertCtrl.create({
       title: 'Confirm Ride',
-      message: 'Do you want to ride with? '+name,
+      message: 'Do you want to ride with '+name+' ?',
       buttons: [
         {
           text: 'Nah',
@@ -359,6 +563,11 @@ export class DashboardPage {
         {
           text: 'Yeah',
           handler: () => {
+            this.localNotifications.schedule({
+              id: 1,
+              text: name + ' has requested to ride with you'
+            })
+            ;
             alert("Your request has been sent to "+name)
           }
         }
